@@ -154,30 +154,27 @@ public class DataMode implements Observer {
 	}
 
 	public void showCom() {
-		System.out.println("显示信息面板");
+
 		devInfo.setVisible(true);
 		showDeviceDetail();
 		showDeviceDataCount();
 	}
 
 	public void hideCom() {
-		System.out.println("隐藏信息面板");
+
 		devInfo = new Pane();
 		devInfo.setVisible(false);
 	}
 
 	public void showDeviceDetail() {
-		System.out.println("设备信息--显示");
+
 		initDeviceDeatil();
 		initExternalDeviceType();
 	}
 
-	public void hideDeviceDetail() {
-		System.out.println("设备信息--隐藏");
-	}
+
 
 	public void showDeviceDataCount() {
-		System.out.println("设备流量--显示");
 		if (selectedPort != null) {
 			String count = ByteCountData.getData().get(selectedPort);
 			if (count == null) {
@@ -196,7 +193,7 @@ public class DataMode implements Observer {
 	}
 
 	public void initDeviceDeatil() {
-		System.out.println("-----加载设备信息-----");
+
 		if (selectedPort != null) {
 			Device device = DeviceData.getData().get(selectedPort);
 			if (device == null) {
@@ -238,7 +235,6 @@ public class DataMode implements Observer {
 	}
 
 	public void initExternalDeviceType() {
-		System.out.println("-----加载设备运行状态-----");
 		if (selectedPort != null) {
 			ExternalDevice externalDevice = ExternalDeviceData.getData().get(selectedPort);
 			if (externalDevice == null || externalDevice.getFeed() <0 || externalDevice.getFeed() > 10  ) {
@@ -258,41 +254,32 @@ public class DataMode implements Observer {
 			isPowerOn = false;
 			hideExternalDeviceType();
 		}
-
 	}
 
 	public void showExternalDeviceType() {
-		System.out.println("设备运行状态--正常");
 		devStatus.setFill(Color.GREEN);
 		int i = (deviceType.getText().length() > 8 ? 8 : deviceType.getText().length()) * 10;
-		System.out.println("====="+i);
 		devStatus.setLayoutX(80 + i);
-
 	}
 
 	private void hideExternalDeviceType() {
-		System.out.println("设备运行状态--异常");
 		int i = (deviceType.getText().length() > 8 ? 8 : deviceType.getText().length()) * 10;
-		System.out.println("====="+i);
 		devStatus.setFill(Color.RED);
 		devStatus.setLayoutX(80 + i);
 	}
 
 	public void showDeviceStatus() {
-		System.out.println("设备连接状态--正常");
 		deviceStatus.setText("CONNECTED");
 		deviceStatus.setTextFill(Color.GREEN);
 		conn.setText("DISCONNECT");
 	}
 
 	public void clearDeviceStatus() {
-		System.out.println("设备连接状态--闲置");
 		deviceStatus.setText("");
 		conn.setText("CONNECT");
 	}
 
 	public void hideDeviceStatus() {
-		System.out.println("设备连接状态--异常");
 		deviceStatus.setText("DISCONNECT");
 		deviceStatus.setTextFill(Color.RED);
 		conn.setText("CONNECT");
