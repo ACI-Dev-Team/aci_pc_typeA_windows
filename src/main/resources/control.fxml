@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+
+<Pane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #242425; -fx-opacity: 1;" stylesheets="cooltron.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cooltron.typec.swing.Controller">
+    <children>
+        <Pane id="menuBar" minHeight="25.0" minWidth="960.0" prefHeight="25.0" prefWidth="960.0" style="-fx-background-color: #15BAFF; -fx-opacity: 1;">
+            <children>
+                <Button id="" onAction="#aboutUs" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #15BAFF; -fx-border-width: 1; -fx-border-color: #15BAFF; -fx-text-fill: #ffffff; -fx-background-insets: 0;" text="ABOUT AC INFINITY">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Pane id="content" layoutY="25.0" prefHeight="515.0" prefWidth="960.0" style="-fx-background-color: #242425;">
+            <children>
+                <Pane id="devList" prefHeight="515.0" prefWidth="210.0">
+                    <children>
+                        <Label layoutX="11.0" layoutY="24.5" prefHeight="19.0" prefWidth="54.0" style="-fx-opacity: 1" text="DEVICES" textFill="#FFFFFF">
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="14.0" layoutY="453.0" mnemonicParsing="false" onAction="#scanPort" prefHeight="17.0" prefWidth="110.0" style="-fx-background-color: #242425;-fx-border-radius: 25;-fx-background-radius: 25;-fx-border-color: #707070" text="SCAN" textFill="#FFFFFF">
+                            <font>
+                                <Font size="9.0" />
+                            </font>
+                        </Button>
+                        <ListView fx:id="listView" layoutX="12.0" layoutY="60.0" prefHeight="359.0" prefWidth="153.0" />
+                    </children>
+                </Pane>
+                <Pane fx:id="devInfoControl" layoutX="210.0" prefHeight="515.0" prefWidth="540.0" style="-fx-background-color: #000000;">
+                    <children>
+                        <Text fill="#FFFFFF" layoutX="230.0" layoutY="48.0" style="line-height: 37px;color: #FFFFFF;letter-spacing: 10px;opacity: 1;" text="CONTROLS">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Text>
+                        <Pane layoutX="170.0" layoutY="135.0" prefHeight="200" prefWidth="200">
+                            <children>
+                                <Arc fill="TRANSPARENT" layoutX="100.0" layoutY="100.0" length="270.0" onMouseClicked="#clickCircle" radiusX="100.0" radiusY="100.0" startAngle="-45.0" stroke="#727070" strokeWidth="4.0" />
+                                <Circle fx:id="circle" fill="WHITE" layoutX="32.0" layoutY="177.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Arc fx:id="circleProgress" fill="TRANSPARENT" layoutX="100.0" layoutY="100.0" onMouseClicked="#clickCircle" radiusX="100.0" radiusY="100.0" startAngle="-45.0" stroke="WHITE" strokeWidth="4.0" />
+                            </children>
+                        </Pane>
+                        <Pane layoutX="185.0" layoutY="310.0" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: TRANSPARENT;">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#subFeed" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: TRANSPARENT; -fx-label-padding: 10;" styleClass="btn-operate" text="—" textFill="WHITE" />
+                                <Label layoutX="86.0" layoutY="15.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="2.0" style="-fx-background-color: #727070;" textFill="#727070" />
+                                <Label layoutX="88.0" mnemonicParsing="false" onMouseClicked="#addFeed" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: TRANSPARENT;" styleClass="btn-operate" text=" + " textFill="WHITE">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Label fx:id="speak" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="221.0" layoutY="209.0" prefHeight="50.0" prefWidth="100.0" style="line-height: 51px;color: #FFFFFF;opacity: 1;" text="0" textFill="#FFFFFF">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Label>
+                        <Label id="" fx:id="sendCount" alignment="CENTER_RIGHT" layoutX="145.0" layoutY="450.0" prefHeight="30.0" prefWidth="120.0" style="-fx-opacity: 1;" text="SENT: 0 BYTES" textFill="#FFFFFF">
+                            <font>
+                                <Font size="8.0" />
+                            </font>
+                        </Label>
+                        <Label id="" fx:id="receiveCount" layoutX="276.0" layoutY="450.0" prefHeight="30.0" prefWidth="120.0" style="-fx-opacity: 1;" text="RECEIVED: 0 BYTES" textFill="#FFFFFF">
+                            <font>
+                                <Font size="8.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane fx:id="devInfo" layoutX="750.0" prefHeight="515.0" prefWidth="210.0">
+                    <children>
+                        <Label fx:id="serialPortName" layoutX="10.0" layoutY="25.0" prefHeight="30.0" prefWidth="120.0" text="ADAPTER NAME" textFill="#FFFFFF">
+                            <font>
+                                <Font size="8.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="conn" layoutX="9.0" layoutY="200.0" mnemonicParsing="false" onAction="#operateConn" prefHeight="17.0" prefWidth="110.0" style="-fx-background-color: #242425;                                         -fx-border-radius: 25;                                         -fx-background-radius: 25;                                         -fx-border-color: #707070" text="CONNECT" textFill="#FFFFFF">
+                            <font>
+                                <Font size="9.0" />
+                            </font>
+                        </Button>
+                        <Pane fx:id="connedStatus" layoutY="16.0" prefHeight="170.0" prefWidth="210.0">
+                            <children>
+                                <Pane fx:id="connedDevice" layoutX="10.0" layoutY="45.0">
+                                    <children>
+                                        <Circle fx:id="devStatus" fill="red" layoutX="110.0" layoutY="55.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                                        <Label id="" prefHeight="30.0" prefWidth="110.0" text="SERIES NUMBER:" textFill="#FFFFFF">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="" fx:id="serial" layoutX="75.0" prefHeight="30.0" prefWidth="78.0" text="" textFill="#FFFFFF">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="" layoutY="20.0" prefHeight="30.0" prefWidth="110.0" text="MODEL VERSION:" textFill="#FFFFFF">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="" fx:id="version" layoutX="75.0" layoutY="20.0" prefHeight="30.0" prefWidth="88.0" text="" textFill="#FFFFFF">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="" layoutY="40.0" prefHeight="30.0" prefWidth="110.0" text="CURRENT DEVICE:" textFill="#FFFFFF">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="" fx:id="deviceType" layoutX="75.0" layoutY="40.0" prefHeight="30.0" prefWidth="100.0" textFill="#FFFFFF">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                        </Label>
+                                        <Pane fx:id="linedInDevice" layoutY="135.0" prefHeight="1.0" prefWidth="188.0">
+                                            <children>
+                                                <Label id="" layoutY="-75.0" prefHeight="30.0" prefWidth="100.0" text="DEVICE STATUS: " textFill="#FFFFFF">
+                                                    <font>
+                                                        <Font size="8.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label id="" fx:id="deviceStatus" layoutX="75.0" layoutY="-75.0" prefHeight="30.0" prefWidth="80.0" text="">
+                                                    <font>
+                                                        <Font size="8.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </Pane>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                        <Label id="" layoutX="10.0" layoutY="450.0" prefHeight="35.0" prefWidth="188.0" text="COPYRIGHT @AC INFINITY" textFill="WHITE">
+                            <font>
+                                <Font size="8.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </children>
+</Pane>
