@@ -15,13 +15,7 @@ public class BusinessData extends Observable {
 		businessData.addObserver(dataMode);
 	}
 
-	public static void clearCache(String port) {
-		SerialPort ctx = CommandUtil.online_ports.get(port);
-		clearPort(port);
-		clearChannel(ctx);
-		businessData.setChanged();
-		businessData.notifyObservers(CommandUtil.online_ports);
-	}
+
 
 	public static void clearCacheWiteLineout(String port) {
 		clearPort(port);
@@ -29,15 +23,6 @@ public class BusinessData extends Observable {
 		businessData.notifyObservers(CommandUtil.online_ports);
 	}
 
-	private static void clearChannel(SerialPort ctx) {
-		if (ctx != null) {
-			try {
-				ctx.closePort();
-			} catch (SerialPortException e) {
-				e.printStackTrace();
-			}
-		}
-	}
 
 	private static void clearPort(String port) {
 		if (port != null) {

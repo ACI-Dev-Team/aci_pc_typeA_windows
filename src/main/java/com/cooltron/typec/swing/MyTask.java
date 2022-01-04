@@ -19,7 +19,6 @@ public class MyTask extends Task<String> {
 
     protected void updateMessage(String message)
     {
-        // TODO Auto-generated method stub
         super.updateMessage(message);
     }
 }

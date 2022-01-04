@@ -23,7 +23,6 @@ public class DevFeedChain implements FrameChain {
 				feed = data[1];
 				speed = (0xff00 & data[3] << 8 | (0xff & data[2]));
 			}
-
 			ExternalDeviceData.updateFee(port, feed, speed);
 			break;
 		case CommandUtil.dataType_controlFeed_ask:

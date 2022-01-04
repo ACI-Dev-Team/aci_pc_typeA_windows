@@ -49,11 +49,7 @@ public class DeviceData extends Observable {
 		deviceData.notifyObservers(serialPort_deviceInfo);
 	}
 
-	public static void clearData111(String port) {
 
-		deviceData.setChanged();
-		deviceData.notifyObservers(serialPort_deviceInfo);
-	}
 
 	public static Map<String, Device> getData() {
 		return serialPort_deviceInfo;

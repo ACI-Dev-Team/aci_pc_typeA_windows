@@ -195,10 +195,6 @@ public class DataMode implements Observer {
 		}
 	}
 
-	public void hideDataCount() {
-		System.out.println("设备流量--隐藏");
-	}
-
 	public void initDeviceDeatil() {
 		System.out.println("-----加载设备信息-----");
 		if (selectedPort != null) {

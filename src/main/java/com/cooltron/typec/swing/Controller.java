@@ -72,12 +72,11 @@ public class Controller extends DataMode implements Initializable {
 			@Override
 			public void run() {
 				scanPort();
-//				clearPort();
 			}
 		}, 1000, 4000);
 	}
 
-	// 打开串口
+
 	public void scanPort() {
 		List<String> portList = ChannelUtil.findComPort();
 		if (portList == null || portList.size() == 0) {

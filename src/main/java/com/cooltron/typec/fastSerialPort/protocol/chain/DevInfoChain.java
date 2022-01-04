@@ -4,7 +4,6 @@ import com.cooltron.typec.fastSerialPort.protocol.entity.FrameModel;
 import com.cooltron.typec.fastSerialPort.protocol.util.CommandUtil;
 import com.cooltron.typec.fastSerialPort.protocol.util.DeviceData;
 import com.cooltron.typec.fastSerialPort.protocol.util.ExternalDeviceData;
-import com.cooltron.typec.swing.DataMode;
 import jssc.SerialPort;
 import lombok.extern.slf4j.Slf4j;
 
